@@ -1,4 +1,4 @@
-# Carson's PDF Label Extractor
+# Carson's EasyLabel Extractor
 A simple tool to extract and save just the 4x6 shipping label from PDF files such as amazon return labels for those who have a thermal or other shipping label printers. Select a region, preview it, and it will automatically convert your capture as a high-quality pre-formatted PDF for your label printer. The program enables users to visually select regions of interest (ROIs) from PDF pages and save these selections as high-resolution 4x6 PDF labels. This project is built with Python and leverages key libraries such as tkinter for the graphical user interface, pdf2image for PDF conversion, and cv2 for image processing.
 
 # Demo:
