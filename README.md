@@ -1,6 +1,6 @@
 # Labelizer4x6
 
-**Version 2.0.0 of [EasyLabel Extractor](https://github.com/mershonc/EasyLabel-Extractor)**
+**Version 2.0.0**
 
 A free Windows desktop utility for extracting shipping labels from return PDFs and formatting them for 4 × 6 inch thermal label printers. Created by Carson.
 
