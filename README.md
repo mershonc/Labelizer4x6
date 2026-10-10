@@ -6,6 +6,9 @@ A free Windows desktop utility for extracting shipping labels from return PDFs a
 
 Labelizer4x6 replaces the original Tkinter interface with a modern dark-purple desktop UI. Everything is processed locally, without uploading your PDFs.
 
+<img width="1252" height="842" alt="image" src="https://github.com/user-attachments/assets/4b7f9c45-9729-4771-bb99-beae69f662eb" />
+
+
 ## Download
 
 Once released, download the **Labelizer4x6.exe** file from [GitHub Releases](https://github.com/mershonc/EasyLabel-Extractor/releases). It is a single-file Windows executable; a separate Python installation is not required to run it.
