@@ -1,43 +1,77 @@
-# Carson's EasyLabel Extractor
-A simple tool to extract and save just the 4x6 shipping label from PDF files such as amazon return labels for those who have a thermal or other shipping label printers. Select a region, preview it, and it will automatically convert your capture as a high-quality pre-formatted PDF for your label printer. The program enables users to visually select regions of interest (ROIs) from PDF pages and save these selections as high-resolution 4x6 PDF labels. This project is built with Python and leverages key libraries such as tkinter for the graphical user interface, pdf2image for PDF conversion, and cv2 for image processing.
+# Labelizer4x6
 
-# Demo:
+**Version 2.0.0 of [EasyLabel Extractor](https://github.com/mershonc/EasyLabel-Extractor)**
 
-**Step 1:** 
-Open the program and click the "Select PDF File" button.
+A free Windows desktop utility for extracting shipping labels from return PDFs and formatting them for 4 × 6 inch thermal label printers. Created by Carson.
 
-![image](https://github.com/user-attachments/assets/da38bec7-22c2-43f1-922a-31e97b1c980f)
+Labelizer4x6 replaces the original Tkinter interface with a modern dark-purple desktop UI. Everything is processed locally, without uploading your PDFs.
 
-**Step 2:** 
-You will see a new window appear with the PDF you selected, click and hold on one end of the label and drag to the corner opposite and accross from your first selection and release to highlight the entire shipping label on the pdf.
+## Download
 
-![image](https://github.com/user-attachments/assets/2811fa26-f389-447a-84a5-43f1d963cd49)
+Once released, download the **Labelizer4x6.exe** file from [GitHub Releases](https://github.com/mershonc/EasyLabel-Extractor/releases). It is a single-file Windows executable; a separate Python installation is not required to run it.
 
-**Step 3:** 
-Hit enter when you selected the label from the PDF. You will see the automatically formatted shipping label preview in the program now, if you are satisfied, you repeat the steps above from this screen. If you're satisfied, press the "Save Label" button on the bottom right. This will prompt you where to save the new label, and once saved it will automattically opened the saved file with your default .pdf file extension program.
+> **v2.0.0 release preparation:** The source code is currently under review. The standalone Windows executable will be uploaded to the release separately after local testing.
 
-![image](https://github.com/user-attachments/assets/41321c3f-203e-4b20-b137-023c6b0290f5)
+## Features
 
-**Step 4:** 
-In the PDF preview page, select the print button at the top.
+- **Auto-find label:** Automatically locate a likely shipping-label rectangle within a return document.
+- **Manual crosshair selection:** Drag around any area of a PDF and preview it as a 4 × 6 label.
+- **Multiple PDFs:** Add files through the file picker or drag PDFs into the left panel. Remove individual entries without deleting their originals.
+- **Live output preview:** Verify the label before saving or printing.
+- **Rotation:** Rotate a label by 90° in either direction, including upside-down labels.
+- **Sizing:** Stretch selection to 4 × 6, fill the page by cropping edges, or fit the entire selection with margins.
+- **Undo crop:** Restore the original page and select a different region.
+- **Print directly:** Choose a Windows printer through the print dialog.
+- **Save as PDF:** Create a true 4 × 6 inch PDF named `OriginalFilename_YYYY-MM-DD_HH-MM-SS_4x6.pdf`.
+- **Optional PDF viewer:** Optionally open the saved output in your default PDF application.
 
-![image](https://github.com/user-attachments/assets/e6e01f4d-4996-4a75-8d7b-be2dce9b57d3)
+## Using Labelizer4x6
 
-**Step 5:** 
-To send the label to your shipping label printer, please ensure you've made all the necessary selections in the highlighted regions shown below. Paper size for a 4x6 Label printer should be set to 100mm*150mm or just 4x6 inches if that option is there but they are the same thing. Once that is done, click on the print button on the bottom of the page! This will send your label to your printer of choice and you will have yourself a perfectly formatted shipping label from your PDF.
+1. Run `Labelizer4x6.exe` and add one or more PDFs.
+2. Choose the PDF and page containing the label.
+3. Use **Auto-find label** or **Manual crosshair crop** to select it.
+4. Review the preview. Adjust sizing and rotation if necessary.
+5. Click **Print 4×6 Label** or **Save 4×6 Label PDF**. The open-after-saving checkbox is optional and off by default.
 
-![image](https://github.com/user-attachments/assets/8876b8a3-f0ea-4fe5-992f-f83289470256)
+### Barcode and printer safety
 
-**Final product:**
+The **Stretch selection** option fills the whole page but can distort barcodes when the selection is not already close to a 2:3 aspect ratio. For maximum scan reliability, prefer **Fit entire selection** or crop more closely to the label without distorting it. Verify the printed label before shipping.
 
-![IMG_5676 (1)](https://github.com/user-attachments/assets/0a2eca4a-933d-4b8e-ab12-ada6997f30b0)
+Printing requires a configured printer and compatible Windows printer driver. In the printer preferences, select **4 × 6 inch** label stock and confirm the orientation and scaling.
 
-# Key Features: 
-1. PDF Selection and Conversion: Users can load PDF files and extract their first page as a high-resolution image.
-2. Region of Interest Selection: An interactive interface allows users to select areas from the image with adjustable scaling to match the screen size.
-3. Preview Functionality: The selected region is displayed within the application for verification.
-4. Label Saving: The selected area can be resized to fit a standard 4x6 label size and saved as a PDF.
-5. Clear and Reset Options: Users can easily clear the selection and choose a different PDF file.
-6. Streamlined UI: The application features a clean, accessible design with hover effects and button state management.
+## Build from source (Windows)
 
-This tool is ideal for quickly generating labels from existing PDF documents, whether for organizational purposes, shipping, or archiving needs. I personally created this project to get just the shipping labels from amazon return pdfs to print directly with my thermal printer!
+You will need Python 3.11 or 3.12 on Windows.
+
+```bat
+git clone https://github.com/mershonc/EasyLabel-Extractor.git
+cd EasyLabel-Extractor
+build_windows.bat
+```
+
+The build script installs dependencies from `requirements.txt`, generates artwork with `generate_assets.py`, then packages the application with PyInstaller. The standalone executable appears at:
+
+```text
+dist\Labelizer4x6.exe
+```
+
+To run the source directly:
+
+```bat
+py -m pip install -r requirements.txt
+py generate_assets.py
+py labelizer.py
+```
+
+## Version history
+
+- **v2.0.0:** Labelizer4x6 with a redesigned interface, automatic label detection, drag-and-drop, cropping, rotation, sizing options, direct printing, and timestamped exports.
+- **v1.0.0:** Carson's EasyLabel Extractor, a simple manual PDF region-selection utility. The original source remains available in the Git history and original release.
+
+See [CHANGELOG.md](CHANGELOG.md) for details and [RELEASE_NOTES_v2.0.0.md](RELEASE_NOTES_v2.0.0.md) for the release description.
+
+## License
+
+This project is licensed under the **GNU General Public License v3.0**, consistent with the original repository. See [LICENSE](LICENSE).
+
+Created by Carson.
