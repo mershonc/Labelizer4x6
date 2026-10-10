@@ -13,8 +13,6 @@ Labelizer4x6 replaces the original Tkinter interface with a modern dark-purple d
 
 Once released, download the **Labelizer4x6.exe** file from [GitHub Releases](https://github.com/mershonc/EasyLabel-Extractor/releases). It is a single-file Windows executable; a separate Python installation is not required to run it.
 
-> **v2.0.0 release preparation:** The source code is currently under review. The standalone Windows executable will be uploaded to the release separately after local testing.
-
 ## Features
 
 - **Auto-find label:** Automatically locate a likely shipping-label rectangle within a return document.
