@@ -352,7 +352,7 @@ class MainWindow(QMainWindow):
         self.preview_mode = "auto"
         self.rotation = 0
         self._build_ui()
-        icon_path = Path(__file__).with_name("labelizer.ico")
+        icon_path = Path(getattr(sys, "_MEIPASS", Path(__file__).parent)) / "labelizer.ico"
         if icon_path.exists():
             self.setWindowIcon(QIcon(str(icon_path)))
 
